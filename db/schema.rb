@@ -10,9 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2018_10_26_093010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "assets", force: :cascade do |t|
+    t.bigint "company_id"
+    t.string "name"
+    t.string "key"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_assets_on_company_id"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.bigint "asset_id"
+    t.float "x"
+    t.float "y"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["asset_id"], name: "index_positions_on_asset_id"
+  end
+
+  add_foreign_key "assets", "companies"
+  add_foreign_key "positions", "assets"
 end

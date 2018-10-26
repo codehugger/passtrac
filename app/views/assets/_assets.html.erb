@@ -1,0 +1,27 @@
+<% if !assets.blank? %>
+  <table class="table mb-0">
+    <thead class="bg-light">
+      <tr>
+        <th class="border-0">Name</th>
+        <% if @company.blank? %><th>Company</th><% end %>
+        <th colspan="3" class="border-0"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% assets.each do |asset| %>
+      <tr>
+        <td><%= asset.name %></td>
+        <% if @company.blank? %><td><%= link_to asset.company, asset.company %></td><% end %>
+        <td class="text-right">
+          <%= link_to 'Show', asset %> |
+          <%= link_to 'Edit', edit_asset_path(asset) %> |
+          <%= link_to 'Destroy', asset, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No assets</p>
+<% end %>

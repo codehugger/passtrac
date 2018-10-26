@@ -1,0 +1,14 @@
+<% content_for :page_subtitle do %>Companies<% end %>
+<% content_for :page_title do%><%= @company.name %><% end %>
+
+<div class="card card-small mb-3">
+  <div class="card-header border-bottom">
+    <h6 class="m-0">Assets</h6>
+  </div>
+  <div class="card-body p-0 pb-3 text-left">
+    <%= render 'assets/assets', assets: @company.assets %>
+  </div>
+</div>
+
+<%= link_to 'Add asset', new_company_asset_path(@company) %> |
+<%= link_to 'Edit', edit_company_path(@company) %>

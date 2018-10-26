@@ -1,0 +1,10 @@
+<% content_for :page_subtitle do %>Assets<% end %>
+<% content_for :page_title do %>Assets<% end %>
+
+<!-- Add New Asset Form -->
+<div class="card card-small mb-3">
+  <div class="card-body">
+    <%= render 'assets', assets: @assets %>
+  </div>
+</div>
+<!-- / Add New Asset Form -->
