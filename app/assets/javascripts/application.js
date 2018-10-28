@@ -12,4 +12,24 @@
 //
 //= require rails-ujs
 //= require activestorage
+//= require Chart.bundle
+//= require chartkick
 //= require_tree .
+
+setTimeout(function() {
+  var chart = Chartkick.charts["chart-1"];
+
+  jQuery.get('/assets.json', function (data) {
+    var positions = [];
+
+    for (i=0; i < data.length; i++) {
+      positions.push(data[i].position);
+    }
+
+    chart.updateData([
+      {name: "Antennas", data: [[0,0], [0,20], [20,0], [20,20]]},
+      {name: "Assets",   data: positions }]
+    );
+  });
+
+}, 5000);

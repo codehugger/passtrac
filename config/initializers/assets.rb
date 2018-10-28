@@ -1,5 +1,8 @@
 # Be sure to restart your server when you modify this file.
 
+# Since we are using Asset model class we need to rename this
+Rails.application.config.assets.prefix = '/assetz'
+
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
 

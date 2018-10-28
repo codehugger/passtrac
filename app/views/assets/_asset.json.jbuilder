@@ -1,2 +1,3 @@
 json.extract! asset, :id, :name, :created_at, :updated_at
+json.position [asset.position.x, asset.position.y]
 json.url asset_url(asset, format: :json)

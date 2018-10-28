@@ -1,10 +1,40 @@
 <% content_for :page_subtitle do %>Assets<% end %>
-<% content_for :page_title do %>Assets<% end %>
+<% content_for :page_title do %>All assets<% end %>
 
 <!-- Add New Asset Form -->
-<div class="card card-small mb-3">
-  <div class="card-body">
-    <%= render 'assets', assets: @assets %>
+<div class="row">
+  <div class="col-sm-8">
+    <div class="card card-small mb-4">
+      <div class="card-header border-bottom">
+        Active Assets
+      </div>
+      <div class="card-body p-0 pb-3">
+        <%= render 'assets', assets: @assets %>
+      </div>
+    </div>
+
+    <div class="card card-small mb-4">
+      <div class="card-header border-bottom">
+        Inactive Assets
+      </div>
+      <div class="card-body p-0 pb-3">
+        <%= render 'assets', assets: @inactive_assets %>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card card-small mb-4">
+      <div class="card-header border-bottom">
+        Actions
+      </div>
+      <div class="card-body p-0">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item d-flex px-3">
+            <%= link_to "Add asset", new_asset_path, class: 'btn btn-primary btn-block' %>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 <!-- / Add New Asset Form -->

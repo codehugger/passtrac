@@ -1,11 +1,11 @@
 class AssetsController < ApplicationController
-  before_action :set_company, only: [:new, :create]
+  before_action :set_company
   before_action :set_asset, only: [:show, :edit, :update, :destroy]
 
   # GET /assets
   # GET /assets.json
   def index
-    @assets = Asset.all
+    @assets = @company.assets.all
   end
 
   # GET /assets/1
@@ -65,11 +65,11 @@ class AssetsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_company
-      @company = Company.find(params[:company_id])
+      @company = Company.first
     end
 
     def set_asset
-      @asset = Asset.find(params[:id])
+      @asset = @company.assets.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

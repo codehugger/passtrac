@@ -1,0 +1,36 @@
+<div class="card card-small card-post h-100">
+  <div class="card-body">
+    <h5 class="card-title">
+      <%= asset.name %>
+    </h5>
+
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="qr">
+          <%= raw asset.qr.as_html %>
+        </div>
+      </div>
+      <div class="col-sm-9">
+        <dl>
+          <dt>Key</dt>
+          <dd><%= asset.key %></dd>
+
+          <dt>Last known location:</dt>
+          <dd><%= asset.position.blank? ? "n/a": "#{asset.position.try(:x)}, #{asset.position.try(:y)}" %></dd>
+
+          <dt>Time since last position:</dt>
+          <dd><%= asset.position.blank? ? "n/a": "#{asset.position.try(:created_at)}" %></dd>
+
+          <dt>Registered at</dt>
+          <dd><%= asset.created_at %></dd>
+
+          <dt>Last changed</dt>
+          <dd><%= asset.updated_at %></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer text-muted border-top py-3">
+    <span class="d-inline-block"><%= link_to "edit", edit_asset_path(asset) %></span>
+  </div>
+</div>

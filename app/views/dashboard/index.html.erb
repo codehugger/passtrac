@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
+    <div class="card card-small">
+      <div class="card-header border-bottom">
+        <h6 class="m-0">Real-Time Asset Tracking</h6>
+      </div>
+      <div class="card-body pt-2">
+        <%= scatter_chart [
+            { name: "Antennas", data: [[0,0],[0,20],[20,20],[20,0]] },
+            { name: "Assets", data: Asset.all.collect(&:position).map { |p| [p.x, p.y] } }
+          ], { xtitle: "X", ytitle: "Y", width: "800px", height: "800px" } %>
+      </div>
+    </div>
+  </div>
+</div>
