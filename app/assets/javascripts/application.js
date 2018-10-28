@@ -16,8 +16,8 @@
 //= require chartkick
 //= require_tree .
 
-setTimeout(function() {
-  var chart = Chartkick.charts["chart-1"];
+setInterval(function() {
+  var chart = Chartkick.charts["chart-overview"];
 
   jQuery.get('/assets.json', function (data) {
     var positions = [];
@@ -27,9 +27,9 @@ setTimeout(function() {
     }
 
     chart.updateData([
-      {name: "Antennas", data: [[0,0], [0,20], [20,0], [20,20]]},
+      {name: "Antennas", data: [[0,0], [0,100], [100,0], [100,100]]},
       {name: "Assets",   data: positions }]
     );
   });
 
-}, 5000);
+}, 1000);

@@ -6,9 +6,9 @@
       </div>
       <div class="card-body pt-2">
         <%= scatter_chart [
-            { name: "Antennas", data: [[0,0],[0,20],[20,20],[20,0]] },
-            { name: "Assets", data: Asset.all.collect(&:position).map { |p| [p.x, p.y] } }
-          ], { xtitle: "X", ytitle: "Y", width: "800px", height: "800px" } %>
+            { name: "Antennas", data: [[0,0],[0,100],[100,100],[100,0]] },
+            { name: "Assets", data: Asset.all.collect(&:position).map { |p| [p.try(:x) || 0, p.try(:y) || 0] } }
+          ], { xtitle: "X", ytitle: "Y", width: "800px", height: "800px", id: 'chart-overview' } %>
       </div>
     </div>
   </div>
