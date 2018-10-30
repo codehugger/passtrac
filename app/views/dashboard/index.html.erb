@@ -8,7 +8,7 @@
         <%= scatter_chart [
             { name: "Antennas", data: [[0,0],[0,100],[100,100],[100,0]] },
             { name: "Assets", data: Asset.all.collect(&:position).map { |p| [p.try(:x) || 0, p.try(:y) || 0] } }
-          ], { xtitle: "X", ytitle: "Y", id: 'chart-overview' } %>
+          ], { xtitle: "X", height: "500px", ytitle: "Y", id: 'chart-overview' } %>
       </div>
     </div>
   </div>
