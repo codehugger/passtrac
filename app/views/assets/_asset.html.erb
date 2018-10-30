@@ -52,7 +52,7 @@
             <%= scatter_chart [
               { name: "Antennas", data: [[0,0],[0,100],[100,100],[100,0]] },
               { name: "Positions", data: asset.positions.map { |p| [p.try(:x) || 0, p.try(:y) || 0] } }
-            ], { xtitle: "X", ytitle: "Y", width: "800px", height: "800px", id: 'chart-asset' }
+            ], { xtitle: "X", ytitle: "Y", id: 'chart-asset' }
             %>
           </div>
         </div>
